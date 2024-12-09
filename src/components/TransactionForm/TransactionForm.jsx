@@ -6,11 +6,11 @@ export const TransactionForm = ()=>{
 const {addTransaction} = useTransationContext()
 
 const [formData, setFormData] = useState({
-    type: "",
+    type: "ingreso",
     spend: "",
     money: "",
     date: "",
-    category: "",
+    category: "varios",
 })
 
 const handleChange = (e)=>{
