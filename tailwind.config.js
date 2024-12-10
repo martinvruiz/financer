@@ -7,6 +7,9 @@ module.exports = {
     extend: {
       fontFamily:{ 
         merriweather : ["Merriweather" , "sans-serif"],
+      },
+      backgroundImage:{
+        'fondo' : 'url(/src/images/fondo2.jpg)'
       }
     },
   },

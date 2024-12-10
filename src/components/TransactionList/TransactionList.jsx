@@ -1,14 +1,17 @@
 import { useTransationContext } from "../../context/TransactionContext"
-import { format } from "date-fns"
-import { es } from "date-fns/locale"    
+import { format, parseISO } from "date-fns"
+import { es } from "date-fns/locale" 
 
 
 export const TransactionList = ({ selectedDate })=>{
     const {transactions, deleteTransaction} = useTransationContext()
 
-    const formatDate = (date)=>{
-        return format(new Date(date), "dd MMMM", {locale: es})
-    }
+    const formatDate = (dateString) => {
+        const parsedDate = parseISO(dateString);
+        return format(parsedDate, "dd MMMM", { locale: es });
+
+    };
+
 
     const filteredTransactions = selectedDate
     ? transactions.filter((transaction) => {
@@ -25,7 +28,7 @@ export const TransactionList = ({ selectedDate })=>{
 
     return <>
 
-        <ul className="w-3/4 flex flex-col text-center justify-center border-2 p-1  my-2 border-blue-600">
+        <ul className="w-3/4 bg-white flex flex-col text-center justify-center border-2 p-1  my-2 border-sky-500">
             {
                 sortedTrans.map((transaction)=>
                     <li className="flex justify-center w-full p-1" key={transaction.id}>

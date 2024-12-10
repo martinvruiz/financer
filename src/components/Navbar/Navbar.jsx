@@ -6,8 +6,9 @@ export const Navbar = ()=>{
 
     return <>
     
-        <nav className="bg-blue-600 h-14 w-full text-white flex items-center justify-center">
-            <Link to="/" className="border-b border-white p-1">Inicio</Link>
+        <nav className="bg-sky-500 h-14 w-full text-white flex items-center justify-center">
+            <Link to="/" className="border-b m-1 border-white p-1">Inicio</Link>
+            <Link to="/help" className="border-b m-1 border-white p-1">Ayuda</Link>
         </nav>
 
     </>
