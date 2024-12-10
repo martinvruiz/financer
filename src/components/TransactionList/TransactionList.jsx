@@ -28,10 +28,10 @@ export const TransactionList = ({ selectedDate })=>{
 
     return <>
 
-        <ul className="lg:w-3/4 w-5/6 bg-white flex flex-col text-center justify-center border-2 p-1  my-2 border-sky-500">
+        <ul className="lg:w-3/4 w-11/12 bg-white flex flex-col text-center justify-center border-2 p-1  my-2 border-sky-500">
             {
                 sortedTrans.map((transaction)=>
-                    <li className="flex justify-center w-full p-1" key={transaction.id}>
+                    <li className="flex justify-center items-center w-full p-1" key={transaction.id}>
                         <p className="w-1/4">{formatDate(transaction.date)}</p>
                         <p className="w-1/4">{transaction.spend}</p>
                         <p className={`w-1/4 ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>$ {transaction.money}</p>
