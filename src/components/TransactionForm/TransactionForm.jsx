@@ -42,16 +42,16 @@ const handleSubmit = (e)=>{
     return <>
     
         <form onSubmit={handleSubmit} action="transaction" className="text-sm text-center">
-            <div className="flex flex-col lg:flex-row">
-                <input className="p-2 border-2 border-sky-500 m-2" maxLength="20" placeholder="Motivo" type="text" name="spend" id="spend" value={formData.spend} onChange={handleChange}/>
-                <input className="p-2 border-2 border-sky-500 m-2" placeholder="Monto" type="number" name="money" id="money" value={formData.money} onChange={handleChange}/>
-                <input className="p-2 border-2 border-sky-500 m-2" type="date" name="date" id="date" onChange={handleChange} value={formData.date}/>
-                <select className="p-2 border-2 border-sky-500 m-2"  name="type" id="type" value={formData.type} onChange={handleChange}>
+            <div className="flex flex-col items-center justify-center lg:flex-row">
+                <input className="p-2 border-2 border-sky-500 m-2 w-full" maxLength="20" placeholder="Motivo" type="text" name="spend" id="spend" value={formData.spend} onChange={handleChange}/>
+                <input className="p-2 border-2 border-sky-500 m-2 w-full" placeholder="Monto" type="number" name="money" id="money" value={formData.money} onChange={handleChange}/>
+                <input className="p-2 border-2 border-sky-500 m-2 w-full" type="date" name="date" id="date" onChange={handleChange} value={formData.date}/>
+                <select className="p-2 border-2 border-sky-500 m-2 w-full"  name="type" id="type" value={formData.type} onChange={handleChange}>
                     <option value="ingreso">Ingreso</option>
                     <option value="gasto">Gasto</option>
                 </select>
                 { (formData.type === "gasto" ? (
-                    <select className="p-2 border-2 border-sky-500 m-2" name="category" id="category" value={formData.category} onChange={handleChange}>
+                    <select className="p-2 border-2 border-sky-500 m-2 w-full" name="category" id="category" value={formData.category} onChange={handleChange}>
                         <option value="varios">Varios</option>
                         <option value="alimentacion">Alimentación</option>
                         <option value="expensas">Expensas</option>
@@ -60,7 +60,7 @@ const handleSubmit = (e)=>{
                         <option value="ocio">Ocio</option>
                         <option value="deudas">Deudas</option>
                     </select> ) : (
-                    <select className="p-2 border-2 border-sky-500 m-2" name="category" id="category" value={formData.category} onChange={handleChange}>
+                    <select className="p-2 border-2 border-sky-500 m-2 w-full" name="category" id="category" value={formData.category} onChange={handleChange}>
                         <option value="varios">Varios</option>
                         <option value="sueldo">Sueldo</option>
                         <option value="alquiler">Alquiler</option>

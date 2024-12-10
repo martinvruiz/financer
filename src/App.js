@@ -7,7 +7,7 @@ import { Route, Routes, BrowserRouter } from "react-router";
 
 function App() {
   return (
-    <div className="flex flex-col items-center font-merriweather lg:bg-fondo min-h-screen bg-cover bg-center ">
+    <div className="flex flex-col items-center font-merriweather bg-fondo min-h-screen bg-cover lg:bg-center ">
       <TransactionProvider>
 
         <BrowserRouter>

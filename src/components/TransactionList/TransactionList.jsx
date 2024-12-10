@@ -32,10 +32,10 @@ export const TransactionList = ({ selectedDate })=>{
             {
                 sortedTrans.map((transaction)=>
                     <li className="flex justify-center items-center w-full p-1" key={transaction.id}>
-                        <p className="w-1/4">{formatDate(transaction.date)}</p>
-                        <p className="w-1/4">{transaction.spend}</p>
-                        <p className={`w-1/4 ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>$ {transaction.money}</p>
-                        <button onClick={()=>deleteTransaction(transaction.id)} className="p-1 bg-red-500 text-white text-sm">Eliminar</button>
+                        <p className="w-1/4 text-xs md:text-base">{formatDate(transaction.date)}</p>
+                        <p className="w-1/4 text-xs md:text-base">{transaction.spend}</p>
+                        <p className={`w-1/4 text-xs md:text-base ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>$ {transaction.money}</p>
+                        <button onClick={()=>deleteTransaction(transaction.id)} className="p-1 bg-red-500 text-white text-xs md:text-sm">Eliminar</button>
                     </li>
                 )
             }
