@@ -28,7 +28,7 @@ export const TransactionList = ({ selectedDate })=>{
 
     return <>
 
-        <ul className="w-3/4 bg-white flex flex-col text-center justify-center border-2 p-1  my-2 border-sky-500">
+        <ul className="lg:w-3/4 w-5/6 bg-white flex flex-col text-center justify-center border-2 p-1  my-2 border-sky-500">
             {
                 sortedTrans.map((transaction)=>
                     <li className="flex justify-center w-full p-1" key={transaction.id}>
