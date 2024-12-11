@@ -45,7 +45,7 @@ const handleSubmit = (e)=>{
             onSubmit={handleSubmit} 
             action="transaction" 
             className="text-sm text-center bg-white shadow-md rounded-lg p-6 max-w-full">
-            <div className="flex flex-col gap-4 lg:flex-row lg:gap-6">
+            <div className="flex flex-col justify-center gap-4 lg:flex-row lg:gap-6">
                 <input 
                     className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 " 
                     maxLength="20" 
