@@ -32,7 +32,7 @@ export const TransactionList = ({ selectedDate })=>{
 
     return <>
 
-        <ul className="lg:w-3/5 w-11/12 bg-white rounded-lg shadow-md p-4">
+        <ul className="lg:w-3/5 w-11/12 bg-white rounded-lg shadow-md mb-4 p-4">
             {
                 sortedTrans.map((transaction)=>
                     <li 
