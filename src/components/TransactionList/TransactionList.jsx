@@ -32,7 +32,7 @@ export const TransactionList = ({ selectedDate })=>{
 
     return <>
 
-        <ul className="lg:w-3/5 w-11/12 bg-white rounded-lg shadow-md mb-4 p-4">
+        <ul className="lg:w-3/5 w-11/12 text-center bg-white rounded-lg shadow-md mb-4 p-4">
             {
                 sortedTrans.map((transaction)=>
                     <li 
@@ -43,7 +43,7 @@ export const TransactionList = ({ selectedDate })=>{
                                     {formatDate(transaction.date)}
                             </p>
                             <p 
-                                className="w-1/4 text-xs md:text-base text-indigo-600 font-medium">
+                                className={`w-1/4 text-xs md:text-base font-medium ${transaction.type === "ingreso" ? "text-green-500" : "text-red-500"}`}>
                                     {formatCategory(transaction.category)}
                             </p>
                             <p 
@@ -51,7 +51,7 @@ export const TransactionList = ({ selectedDate })=>{
                                     {transaction.spend}
                             </p>
                             <p 
-                                className={`w-1/4 text-center font-semibold text-xs md:text-base ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>
+                                className={`w-1/4 text-center font-semibold text-md md:text-base}`}>
                                     $ {transaction.money}
                             </p>
                             <button 

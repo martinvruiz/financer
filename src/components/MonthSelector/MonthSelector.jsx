@@ -31,7 +31,7 @@ export const MonthSelector = ({setSelectedDate})=>{
     return <>
 
     <select 
-        className="p-3 my-2 border border-indigo-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 w-3/4 md:w-1/2 hover:shadow-md transition-shadow text-center" 
+        className="p-3 my-1 border border-indigo-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 w-3/4 md:w-1/2 hover:shadow-md transition-shadow text-center" 
         onChange={handleDateChange}>
             <option value="">Todos los meses</option>
                 {month.map((date, index) => (

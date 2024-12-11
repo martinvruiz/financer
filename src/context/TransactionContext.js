@@ -46,6 +46,20 @@ export const TransactionProvider = ({ children })=>{
         });
     };
 
+    const calculateTotalSavings = () => {
+        const totalSavings = transactions
+            .filter((transaction) => transaction.category === "ahorro")
+            .reduce((total, transaction) => {
+                if (transaction.type === "ingreso") {
+                    total += parseFloat(transaction.money);
+                } else if (transaction.type === "gasto") {
+                    total -= parseFloat(transaction.money);
+                }
+                return total < 0 ? 0 : total;
+            }, 0);
+        return totalSavings;
+    };
+
     const calculateTotalDifference = (transactions, selectedDate) => {
         const filteredTransactions = selectedDate
             ? transactions.filter((transaction) => {
@@ -71,7 +85,7 @@ export const TransactionProvider = ({ children })=>{
 
     return (
         <TransanctionContext.Provider
-            value={{ transactions, addTransaction, deleteTransaction, calculateTotalDifference}}
+            value={{ transactions, addTransaction, deleteTransaction, calculateTotalDifference, calculateTotalSavings}}
         >
             {children}
         </TransanctionContext.Provider>

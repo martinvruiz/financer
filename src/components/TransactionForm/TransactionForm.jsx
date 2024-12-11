@@ -3,7 +3,7 @@ import { useTransationContext } from "../../context/TransactionContext"
 
 export const TransactionForm = ()=>{
 
-const {addTransaction} = useTransationContext()
+const {addTransaction, calculateTotalSavings} = useTransationContext()
 
 const [formData, setFormData] = useState({
     type: "ingreso",
@@ -29,6 +29,13 @@ const handleSubmit = (e)=>{
         return;
     }
 
+    if (formData.type === "gasto" && formData.category === "ahorro") {
+        const totalSavings = calculateTotalSavings();
+        if (formData.money > totalSavings) {
+            alert("No puedes descontar más de lo que tienes ahorrado.");
+            return;
+        }
+    }
 
     const newTransaction = {...formData, id: Date.now()}
     addTransaction(newTransaction)
@@ -87,10 +94,15 @@ const handleSubmit = (e)=>{
                         value={formData.category} 
                         onChange={handleChange}>
                             <option value="varios">Varios</option>
+                            <option value="ahorro">Ahorro</option>
                             <option value="alimentacion">Alimentación</option>
-                            <option value="expensas">Expensas</option>
                             <option value="salud">Salud</option>
                             <option value="vivienda">Vivienda</option>
+                            <option value="servicios">Servicios</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="vestimenta">Vestimenta</option>
+                            <option value="educacion">Educacion</option>
+                            <option value="vacaciones">Vacaciones</option>
                             <option value="ocio">Ocio</option>
                             <option value="deudas">Deudas</option>
                     </select> ) : (
@@ -101,7 +113,11 @@ const handleSubmit = (e)=>{
                         value={formData.category} 
                         onChange={handleChange}>
                             <option value="varios">Varios</option>
+                            <option value="ahorro">Ahorro</option>
+                            <option value="inversiones">Inversiones</option>
+                            <option value="rendimientos">Rendimientos</option>
                             <option value="sueldo">Sueldo</option>
+                            <option value="pension">Pension</option>
                             <option value="alquiler">Alquiler</option>
                             <option value="regalos">Regalos</option>
                     </select>
