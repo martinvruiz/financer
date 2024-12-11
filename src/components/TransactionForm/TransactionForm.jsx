@@ -44,10 +44,10 @@ const handleSubmit = (e)=>{
         <form 
             onSubmit={handleSubmit} 
             action="transaction" 
-            className="text-sm text-center bg-white shadow-md rounded-lg p-6 max-w-full">
-            <div className="flex flex-col justify-center gap-4 lg:flex-row lg:gap-6">
+            className="bg-white rounded-lg shadow-md p-6 space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input 
-                    className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 " 
+                    className="p-3 border border-indigo-300 rounded-lg focus:ring-2 focus:ring-indigo-500" 
                     maxLength="20" 
                     placeholder="Motivo" 
                     type="text" 
@@ -56,7 +56,7 @@ const handleSubmit = (e)=>{
                     value={formData.spend} 
                     onChange={handleChange}/>
                 <input 
-                    className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500" 
+                    className="p-3 border border-indigo-300 rounded-lg focus:ring-2 focus:ring-indigo-500" 
                     placeholder="Monto" 
                     type="number" 
                     name="money" 
@@ -64,14 +64,14 @@ const handleSubmit = (e)=>{
                     value={formData.money} 
                     onChange={handleChange}/>
                 <input 
-                    className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500" 
+                    className="p-3 border border-indigo-300 rounded-lg focus:ring-2 focus:ring-indigo-500" 
                     type="date" 
                     name="date" 
                     id="date" 
                     onChange={handleChange} 
                     value={formData.date}/>
                 <select 
-                    className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500"
+                    className="p-3 border border-indigo-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
                     name="type" 
                     id="type" 
                     value={formData.type} 
@@ -109,7 +109,7 @@ const handleSubmit = (e)=>{
                 )}
             </div>
             <button 
-                className="mt-6 w-full lg:w-auto px-6 py-3 bg-sky-500 text-white font-semibold rounded-lg hover:bg-sky-600 transition-all focus:ring-2 focus:ring-sky-500" 
+                className="w-full p-3 bg-indigo-500 text-white rounded-lg shadow hover:bg-indigo-600 transition-colors" 
                 type="submit">
                     Guardar
             </button>

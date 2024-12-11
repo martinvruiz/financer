@@ -32,15 +32,33 @@ export const TransactionList = ({ selectedDate })=>{
 
     return <>
 
-        <ul className="lg:w-3/5 w-11/12 flex flex-col text-center justify-center p-1  my-2 space-y-3">
+        <ul className="lg:w-3/5 w-11/12 bg-white rounded-lg shadow-md p-4">
             {
                 sortedTrans.map((transaction)=>
-                    <li className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg border border-gray-200 hover:shadow-lg transition-shadow" key={transaction.id}>
-                        <p className="text-sm md:text-base text-gray-700">{formatDate(transaction.date)}</p>
-                        <p className="w-1/4 text-xs md:text-base">{formatCategory(transaction.category)}</p>
-                        <p className="w-1/4 text-xs md:text-base">{transaction.spend}</p>
-                        <p className={`w-1/4 text-center font-semibold text-xs md:text-base ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>$ {transaction.money}</p>
-                        <button onClick={()=>deleteTransaction(transaction.id)} className="p-1 bg-red-500 text-white text-xs md:text-sm">Eliminar</button>
+                    <li 
+                        className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg border border-gray-200 hover:shadow-lg transition-shadow" 
+                        key={transaction.id}>
+                            <p 
+                                className="text-sm md:text-base">
+                                    {formatDate(transaction.date)}
+                            </p>
+                            <p 
+                                className="w-1/4 text-sm md:text-base text-indigo-600 font-medium">
+                                    {formatCategory(transaction.category)}
+                            </p>
+                            <p 
+                                className="w-1/4 text-xs md:text-base">
+                                    {transaction.spend}
+                            </p>
+                            <p 
+                                className={`w-1/4 text-center font-semibold text-xs md:text-base ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>
+                                    $ {transaction.money}
+                            </p>
+                            <button 
+                                onClick={()=>deleteTransaction(transaction.id)} 
+                                className="p-2 bg-red-500 text-white rounded-md shadow hover:bg-red-600 transition-colors">
+                                    Eliminar
+                            </button>
                     </li>
                 )
             }
