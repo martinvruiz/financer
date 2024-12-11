@@ -8,9 +8,13 @@ export const TransactionList = ({ selectedDate })=>{
 
     const formatDate = (dateString) => {
         const parsedDate = parseISO(dateString);
-        return format(parsedDate, "dd MMMM", { locale: es });
+        return format(parsedDate, "dd/MM", { locale: es });
 
     };
+
+    const formatCategory = (string)=>{
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
 
     const filteredTransactions = selectedDate
@@ -28,13 +32,14 @@ export const TransactionList = ({ selectedDate })=>{
 
     return <>
 
-        <ul className="lg:w-3/4 w-11/12 bg-white flex flex-col text-center justify-center border-2 p-1  my-2 border-sky-500">
+        <ul className="lg:w-3/5 w-11/12 flex flex-col text-center justify-center p-1  my-2 space-y-3">
             {
                 sortedTrans.map((transaction)=>
-                    <li className="flex justify-center items-center w-full p-1" key={transaction.id}>
-                        <p className="w-1/4 text-xs md:text-base">{formatDate(transaction.date)}</p>
+                    <li className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg border border-gray-200 hover:shadow-lg transition-shadow" key={transaction.id}>
+                        <p className="text-sm md:text-base text-gray-700">{formatDate(transaction.date)}</p>
+                        <p className="w-1/4 text-xs md:text-base">{formatCategory(transaction.category)}</p>
                         <p className="w-1/4 text-xs md:text-base">{transaction.spend}</p>
-                        <p className={`w-1/4 text-xs md:text-base ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>$ {transaction.money}</p>
+                        <p className={`w-1/4 text-center font-semibold text-xs md:text-base ${ transaction.type === "ingreso" ? "text-green-500": "text-red-500"}`}>$ {transaction.money}</p>
                         <button onClick={()=>deleteTransaction(transaction.id)} className="p-1 bg-red-500 text-white text-xs md:text-sm">Eliminar</button>
                     </li>
                 )

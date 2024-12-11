@@ -23,15 +23,21 @@ export const MonthSelector = ({setSelectedDate})=>{
     const handleDateChange = (e) => {
         setSelectedDate(e.target.value);
     };
+
+    const formatMonth = (string)=>{
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     
     return <>
 
-    <select className="p-2 border-2 border-sky-500 m-2" onChange={handleDateChange}>
-        <option value="">Todos los meses</option>
-        {month.map((date, index) => (
-        <option key={index} value={date}>
-            {date}
-        </option>
+    <select 
+        className="p-2 border-2 border-sky-500 m-2" 
+        onChange={handleDateChange}>
+            <option value="">Todos los meses</option>
+                {month.map((date, index) => (
+            <option key={index} value={date}>
+                {formatMonth(date)}
+            </option>
         ))}
     </select>
     
