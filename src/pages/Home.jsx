@@ -4,7 +4,6 @@ import { TransactionList } from "../components/TransactionList/TransactionList"
 import { TotalTransactions } from "../components/TotalTransactions/TotalTransactions"
 import { useState } from "react"
 import { useTransationContext } from "../context/TransactionContext";
-import { TotalSavings } from "../components/TotalSaving/TotalSavings";
 
 
 
@@ -24,10 +23,7 @@ export const Home = ()=>{
             <p className="p-2 my-2 text-xl">No hay datos para mostrar!</p>) : (
             <div className="w-full flex flex-col items-center">
                 <MonthSelector setSelectedDate={setSelectedDate}/>
-                <div className="flex md:flex-row flex-col gap-4">
                 <TotalTransactions selectedDate={selectedDate}/>
-                <TotalSavings/>
-                </div>
                 <TransactionList selectedDate={selectedDate}/>
         </div>
         ))}
