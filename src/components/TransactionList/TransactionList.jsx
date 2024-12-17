@@ -1,6 +1,7 @@
 import { useTransationContext } from "../../context/TransactionContext"
 import { format, parseISO } from "date-fns"
 import { es } from "date-fns/locale" 
+import { toast } from "react-toastify"
 
 
 export const TransactionList = ({ selectedDate })=>{
@@ -29,6 +30,40 @@ export const TransactionList = ({ selectedDate })=>{
         return new Date(a.date).getTime() - new Date(b.date).getTime()
     })
 
+    const handleDelete = ( id, spend, money )=>{
+        toast.warning(
+            <div className='text-black h-full text-center'>
+                <span>
+                    <p>
+                        ¿Desea eliminar el registro?
+                    </p>
+                    <p>{spend}, ${money}</p>
+                </span>
+                <div>
+                    <button
+                    onClick={() => {
+                    deleteTransaction(id);
+                    toast.dismiss()
+                    toast.warning("Trasaccion Eliminada")
+                    }}
+                    className=' bg-black text-white rounded-md my-2 mx-6 px-2'
+                    >
+                        Sí
+                    </button>
+                    <button
+                    onClick={() => toast.dismiss()}
+                    className=' bg-black text-white rounded-md my-2 mx-6 px-2'
+                    >
+                        No
+                    </button>
+                </div>
+            </div>,
+            {
+                closeButton: false,
+            }
+        );
+    }
+
 
     return <>
 
@@ -55,7 +90,7 @@ export const TransactionList = ({ selectedDate })=>{
                                     $ {transaction.money}
                             </p>
                             <button 
-                                onClick={()=>deleteTransaction(transaction.id)} 
+                                onClick={()=>handleDelete(transaction.id, transaction.spend, transaction.money)} 
                                 className="p-2 bg-red-500 text-white text-xs md:text-base rounded-md shadow hover:bg-red-600 transition-colors">
                                     Eliminar
                             </button>

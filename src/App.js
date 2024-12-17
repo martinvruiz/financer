@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { Help } from "./pages/Help"
 import { TransactionProvider } from "./context/TransactionContext";
 import { Route, Routes, BrowserRouter } from "react-router";
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
           </Routes>
 
+          <ToastContainer/>
         </BrowserRouter>
 
       </TransactionProvider>

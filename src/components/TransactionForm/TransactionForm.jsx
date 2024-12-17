@@ -1,9 +1,10 @@
 import { useState, } from "react"
 import { useTransationContext } from "../../context/TransactionContext"
+import { toast } from "react-toastify"
 
 export const TransactionForm = ()=>{
 
-const {addTransaction, calculateTotalSavings} = useTransationContext()
+const {addTransaction} = useTransationContext()
 
 const [formData, setFormData] = useState({
     type: "ingreso",
@@ -29,16 +30,11 @@ const handleSubmit = (e)=>{
         return;
     }
 
-    if (formData.type === "gasto" && formData.category === "ahorro") {
-        const totalSavings = calculateTotalSavings();
-        if (formData.money > totalSavings) {
-            alert("No puedes descontar más de lo que tienes ahorrado.");
-            return;
-        }
-    }
 
     const newTransaction = {...formData, id: Date.now()}
     addTransaction(newTransaction)
+    toast.success("Transaccion guardada!")
+
 
     setFormData({ type: "ingreso", spend: "", money: "", date: "", category: "varios" });
 }
