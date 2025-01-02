@@ -23,7 +23,10 @@ export const Home = () => {
           </Link>
           <p className="relative top-10 lg:text-xl">
             Necesitas ayuda?
-            <Link to="/help" className="text-blue-400 ml-2">
+            <Link
+              to="/help"
+              className="text-blue-400 ml-2 border-b border-blue-400"
+            >
               Click aqui
             </Link>
           </p>
