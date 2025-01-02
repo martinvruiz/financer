@@ -1,31 +1,28 @@
-import { MonthSelector } from "../components/MonthSelector/MonthSelector";
-import { TransactionForm } from "../components/TransactionForm/TransactionForm"
-import { TransactionList } from "../components/TransactionList/TransactionList"
-import { TotalTransactions } from "../components/TotalTransactions/TotalTransactions"
-import { useState } from "react"
-import { useTransationContext } from "../context/TransactionContext";
+import img from "../images/mockcup1.png";
+import { Link } from "react-router";
 
+export const Home = () => {
+  const fondo = img;
 
-
-
-export const Home = ()=>{
-    const { transactions } = useTransationContext() 
-
-
-    const [selectedDate, setSelectedDate] = useState("");
-    
-    return <>
-        <h1 className="my-2 p-2 text-4xl text-white">Financer</h1>
-        <p className="mb-2 w-3/4 text-white text-center">Te ayudamos a manejar tus finanzas, introducí en el formulario el tipo de ingreso o gasto</p>
-        <TransactionForm/>
-        <h2 className="mt-2 py-1 text-white text-2xl font-bold">Lista de Ingresos/Gastos</h2>
-        {(transactions.length === 0 ? (
-            <p className="p-2 my-2 text-xl">No hay datos para mostrar!</p>) : (
-            <div className="w-full flex flex-col items-center">
-                <MonthSelector setSelectedDate={setSelectedDate}/>
-                <TotalTransactions selectedDate={selectedDate}/>
-                <TransactionList selectedDate={selectedDate}/>
+  return (
+    <>
+      <div className="relative  text-white w-full h-screen">
+        <img
+          src={fondo}
+          alt="Imagen de fondo"
+          className="w-full max-h-screen object-cover"
+        />
+        <div className="absolute top-1/3 ml-20">
+          <p className="text-8xl font-semibold">Financer</p>
+          <p className="text-4xl">Tus finanzas al alcance de tu mano</p>
+          <Link
+            to="/noter"
+            className="bg-white text-black p-3 rounded-lg relative top-5"
+          >
+            Comenzar
+          </Link>
         </div>
-        ))}
+      </div>
     </>
-}
+  );
+};
