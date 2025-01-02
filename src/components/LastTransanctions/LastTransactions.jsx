@@ -21,7 +21,7 @@ export const LastTransactions = () => {
           transactions.slice(-3).map((transaction) => {
             return (
               <div
-                className="flex justify-between items-center p-4 bg-white shadow-md rounded-lg border text-center border-gray-200 hover:shadow-lg transition-shadow"
+                className="flex justify-between items-center p-4 m-2 bg-white shadow-md rounded-lg border text-center border-gray-200 hover:shadow-lg transition-shadow"
                 key={transaction.id}
               >
                 <div>
