@@ -10,8 +10,8 @@ export const Navbar = () => {
         <Link to="/noter" className="border-b m-1 border-white p-1">
           Anotador
         </Link>
-        <Link to="/help" className="border-b m-1 border-white p-1">
-          Ayuda
+        <Link to="/list" className="border-b m-1 border-white p-1">
+          Registros
         </Link>
       </nav>
     </>

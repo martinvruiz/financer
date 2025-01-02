@@ -5,7 +5,7 @@ export const LastTransactions = () => {
 
   return (
     <>
-      <div className="w-full mb-4 flex flex-col items-center">
+      <div className="w-full my-4 flex flex-col items-center">
         {transactions.slice(-3).map((transaction) => {
           return (
             <div

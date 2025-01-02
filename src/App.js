@@ -5,6 +5,7 @@ import { TransactionProvider } from "./context/TransactionContext";
 import { Route, Routes, BrowserRouter } from "react-router";
 import { ToastContainer } from "react-toastify";
 import { Noter } from "./pages/Noter";
+import { List } from "./pages/List";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/help" element={<Help />}></Route>
             <Route path="/noter" element={<Noter />}></Route>
+            <Route path="/list" element={<List />}></Route>
           </Routes>
 
           <ToastContainer />
