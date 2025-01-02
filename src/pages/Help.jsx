@@ -10,9 +10,9 @@ export const Help = () => {
           ¿Cómo agrego un gasto o un ingreso?
         </p>
         <p>
-          En la pantalla inicio te aparecera el formulario para que agregues tu
-          ingreso o gasto, es importante completar todos los campos para poder
-          guardarlo
+          En la pantalla inicio te aparecera un boton para que agregues tu
+          ingreso o gasto en un formulario, es importante completar todos los
+          campos para poder guardarlo
         </p>
         <p className="p-2 my-2 font-medium">
           ¿Cómo se guarda el gasto o ingreso?
@@ -41,7 +41,7 @@ export const Help = () => {
           ¿Puedo ver los gastos de cada mes en particular?
         </p>
         <p>
-          Si, por defecto aparece la opcion de ver todos los meses pero cada
+          Si, por defecto aparece la opcion de ver todos los registros pero cada
           usuario puede ver lo que gasto por mes en la lista de Ingresos/Gastos
         </p>
       </div>
