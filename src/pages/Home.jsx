@@ -11,7 +11,7 @@ export const Home = () => {
         <img
           src={fondo}
           alt="Imagen de fondo"
-          className="w-full object-cover lg:h-screen h-96"
+          className="w-full object-cover lg:h-screen h-96 border-b-8 border-white"
         />
         <div className="absolute top-1/4 lg:top-1/3 lg:ml-20 ml-10">
           <p className="lg:text-8xl text-6xl font-semibold">Financer</p>

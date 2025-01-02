@@ -41,7 +41,14 @@ export const TransactionList = ({ selectedDate }) => {
             onClick={() => {
               deleteTransaction(id);
               toast.dismiss();
-              toast.warning("Trasaccion Eliminada");
+              toast.warning("Trasaccion Eliminada", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                draggable: true,
+                progress: undefined,
+              });
             }}
             className=" bg-black text-white rounded-md my-2 mx-6 px-2"
           >
@@ -57,6 +64,7 @@ export const TransactionList = ({ selectedDate }) => {
       </div>,
       {
         closeButton: false,
+        position: "top-center",
       }
     );
   };
